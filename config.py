@@ -1,43 +1,71 @@
-"""
-Supreme Hosting Bot - Configuration
-Owner: @shuvohassan00
-Channel: GADGET PREMIUM ZONE
-"""
-
 import os
+from datetime import datetime
 
-# ─────────────────────────────────────────────
-#  Bot Configuration
-# ─────────────────────────────────────────────
-BOT_TOKEN = os.getenv("BOT_TOKEN", "8138779207:AAFb9gDpKcgP3vbalCYHEin8b-vZQydSvqo")
-
-# Owner Telegram ID (STRICT - only this user has full control)
-OWNER_ID = int(os.getenv("OWNER_ID", "7857957075"))  # Replace with actual owner ID
-
-# Branding
-BOT_NAME = "Gadget Premium Host"
-CHANNEL_NAME = "GADGET PREMIUM ZONE"
-PRIVATE_CHANNEL = "https://t.me/+HSqmdVuHFr84MzRl"
-PUBLIC_CHANNEL = "https://t.me/gadgetpremiumzone"
-PUBLIC_CHANNEL_USERNAME = "@gadgetpremiumzone"
-OWNER_USERNAME = "@shuvohassan00"
-
-# Database
-DATABASE_PATH = "data/supreme_hosting.db"
-
-# File storage
-UPLOAD_DIR = "data/user_bots"
-LOGS_DIR = "data/logs"
-
-# Limits
-MAX_FILE_SIZE_MB = 50
-MAX_BOTS_FREE = 1
-MAX_BOTS_PREMIUM = 10
-
-# Process limits
-MAX_LOG_LINES = 50
-PROCESS_TIMEOUT = 300  # 5 minutes for free users
-PREMIUM_PROCESS_TIMEOUT = 0  # Unlimited for premium
-
-# Supported extensions
-SUPPORTED_EXTENSIONS = [".py", ".zip"]
+class Config:
+    # Bot Configuration
+    BOT_TOKEN = "8138779207:AAEc-fA2gQKhy1a4wiMPoihLn1j6xaCeslI"
+    OWNER_ID = 7857957075  # @shuvohassan00 এর Telegram ID
+    
+    # Channels
+    PRIVATE_CHANNEL = "@gadgetpremiumzone"  # Private channel username
+    PUBLIC_CHANNEL = "@gadgetpremiumzone"   # Public channel username
+    
+    # Admin Group (notifications পাঠানোর জন্য)
+    ADMIN_GROUP_ID = 7857957075  # Your admin group ID
+    
+    # Database
+    DATABASE_PATH = "data/users.db"
+    
+    # File Limits
+    MAX_FILE_SIZE_FREE = 5 * 1024 * 1024      # 5MB for free users
+    MAX_FILE_SIZE_PREMIUM = 50 * 1024 * 1024  # 50MB for premium users
+    MAX_BOTS_FREE = 2
+    MAX_BOTS_PREMIUM = 10
+    
+    # Paths
+    HOSTED_BOTS_DIR = "data/hosted_bots"
+    
+    # Emojis for beautiful design
+    EMOJI = {
+        'robot': '🤖',
+        'fire': '🔥',
+        'check': '✅',
+        'cross': '❌',
+        'warning': '⚠️',
+        'rocket': '🚀',
+        'gear': '⚙️',
+        'folder': '📁',
+        'file': '📄',
+        'package': '📦',
+        'chart': '📊',
+        'crown': '👑',
+        'key': '🔑',
+        'shield': '🛡️',
+        'star': '⭐',
+        'diamond': '💎',
+        'lightning': '⚡',
+        'party': '🎉',
+        'bell': '🔔',
+        'link': '🔗',
+        'user': '👤',
+        'users': '👥',
+        'admin': '👨‍💼',
+        'time': '⏰',
+        'calendar': '📅',
+        'upload': '📤',
+        'download': '📥',
+        'play': '▶️',
+        'stop': '⏹️',
+        'restart': '🔄',
+        'delete': '🗑️',
+        'edit': '✏️',
+        'search': '🔍',
+        'settings': '⚙️',
+        'info': 'ℹ️',
+        'money': '💰',
+        'gift': '🎁'
+    }
+    
+    # Create directories
+    os.makedirs(os.path.dirname(DATABASE_PATH), exist_ok=True)
+    os.makedirs(HOSTED_BOTS_DIR, exist_ok=True)
